@@ -54,6 +54,9 @@
 
     <div>{{msg | ccc}}</div>
 
+    <input v-model="filtersText" />
+    <div>{{filtersText | filtersTextChange}}</div>
+
     <!--<div v-bind:class="test">
 
     </div>-->
@@ -105,13 +108,18 @@
     </select>
 
     <span>选择的网站是{{selected}}</span>
-    <input v-focus>
+    <input v-focus v-model="text">
+    <input v-new v-model="npm">
+    {{text2}}
+    {{npm}}
   </div>
 </template>
 <script>
+  let vm = {};
   export default {
     name: 'HelloWorld',
     data () {
+      vm = this;
       return {
         msg: 'welcome to Your Vue.js App',
         aaa:"世间安得双全法，不负如来不负卿",
@@ -122,11 +130,14 @@
           age2:20,
           age3:30
         },
+        npm:'npm',
         res: '欢迎欢迎',
         html:'<button>看我</button>',
         user:true,
         id:111,
         see:true,
+        text:"aaa",
+        text2:"11",
         url:"https://www.baidu.com",
         sites: [
           {name:"aaa"},
@@ -145,7 +156,23 @@
         counter:0,
         model:"双向数据绑定",
         more:[],
-        selected:"1"
+        selected:"1",
+        filtersText: '1',
+        arrayList: [
+          {
+            "code": "1",
+            "value":"北京市"
+          },
+          {
+            "code": '2',
+            "value": "上海市"
+          }
+        ]
+      }
+    },
+    watch:{
+      text(val){
+        this.text2=this.text
       }
     },
     filters:{
@@ -156,6 +183,17 @@
           value = value.toString();
           return value.charAt(0).toUpperCase()+value.slice(1)
         }
+      },
+      filtersTextChange: function(dataStr){
+        let arrayList = vm.arrayList;
+        let value = '没有这个城市';
+        for( let b of arrayList) {
+          if(b.code == dataStr ){
+            value = b.value;
+            break;
+          }
+        }
+        return value;
       }
     },
     directives: {
@@ -164,7 +202,12 @@
         // 指令的定义
         inserted: function (el) {
           // 聚焦元素
-          el.focus()
+          el.focus()                         
+        }
+      },
+      new: {
+        inserted: function (el) {
+          console.log(el,"111111111111111")
         }
       }
     },
@@ -175,7 +218,7 @@
       show:function(e,$event){
         console.log(e,event)
       },
-      mybody:function(){
+      f:function(){
         alert("成功了")
       },
       onSubmit(){

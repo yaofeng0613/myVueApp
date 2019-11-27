@@ -4,6 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './vuex/store'
+import ElementUI from 'element-ui'
+import VueTouch from 'vue-touch'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI);
+Vue.use(VueTouch, {name: 'v-touch'});
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

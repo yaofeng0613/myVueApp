@@ -18,27 +18,27 @@ const mutations = {
 }
 
 const actions = {
-  actionAddCount(context, n = 0 ) {
+  ['actionAddCount'](context, n = 0 ) {
     console.log("action")
     return context.commit('mutationsAddCount', n )
   },
-  actionReduceCount( { commit }, n = 0 ) {
+  ['actionReduceCount']( { commit }, n = 0 ) {
     return commit('mutationsReduceCount', n )
   }
 }
 
-const getters = {
-  // getterCount( state ) {
-  //   return (state.count += 10)
-  // }
-  done:(state) => {
-    return state.count +=50
-  }
-}
+// const getters = {
+//   // getterCount( state ) {
+//   //   return (state.count += 10)
+//   // }
+//   done:(state) => {
+//     return state.count +=50
+//   }
+// }
 
 export default new Vuex.Store({
   state,
   mutations,
   actions,
-  getters
+  // getters
 })

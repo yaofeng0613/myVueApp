@@ -4,6 +4,9 @@
     <router-link to="/">home</router-link>
     <router-link to="/Page1">page1</router-link>
     <router-link to="/Page2">page2</router-link>
+    <router-link to="/Page3">page3</router-link>
+    <router-link to="/Page4">page4</router-link>
+    <router-link to="/Page4/PageSmall4">pageSmall4</router-link>
     <router-view />
   </div>
 </template>

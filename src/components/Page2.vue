@@ -11,39 +11,66 @@
     <button @click="reduce(10)">减少</button>
     <button @click="actionAdd(10)">异步增加</button>
     <button @click="actionReduce(10)">异步减少</button>
+
+    <i class="el-icon-edit"></i>
+    <i class="el-icon-share"></i>
+    <!--<el-input v-model="input" placeholde="请输入内容"></el-input>-->
+    <!--<el-input v-model="watch" placeholde="aaa"></el-input>-->
+    <input v-model="watch"></input>
+    {{watch}}
+    {{input}}
     <!--<button @click="create(10)">计算函数</button>-->
     {{todos}}
+    {{b}}
   </div>
 </template>
 <script>
+  import { mapActions, mapMutations } from 'vuex'
+
   export default {
     name: 'Page2',
     data(){
       return {
-        data:"11"
+        data:11,
+        input:'1',
+        watch:"watch"
       }
     },
     computed:{
+      b:function(){
+        return this.data+1
+      },
       todos:function(){
         return this.$store.getters.done
       }
     },
+    watch:{
+      watch(el){
+        this.input = this.watch
+      }
+    },
     methods: {
+      ...mapMutations(['mutationsAddCount','mutationsReduceCount']),
       add(n){
-        this.$store.commit('mutationsAddCount',n)
+        this.mutationsAddCount(n)
+        // this.$store.commit('mutationsAddCount',n)
       },
       reduce(n){
-        this.$store.commit('mutationsReduceCount',n);
+        this.mutationsReduceCount(n)
+        // this.$store.commit('mutationsReduceCount',n);
       },
+      ...mapActions(['actionAddCount','actionReduceCount']),
       actionAdd(n){
-        this.$store.dispatch('actionAddCount',n);
+        this.actionAddCount(n)
+        // this.$store.dispatch('actionAddCount',n);
       },
       actionReduce(n){
-        this.$store.dispatch('actionReduceCount',n);
+        this.actionReduceCount(n)
+        // this.$store.dispatch('actionReduceCount',n);
       },
-      // create(n){
-      //   this.$store.getters("getterCount",n)
-      // }
+      create(n){
+        this.$store.getters("getterCount",n)
+      }
     },
     // beforeCreate (){
     //   console.log(this.data,"beforeCreate")
