@@ -16,8 +16,8 @@
     <i class="el-icon-share"></i>
     <!--<el-input v-model="input" placeholde="请输入内容"></el-input>-->
     <!--<el-input v-model="watch" placeholde="aaa"></el-input>-->
-    <input v-model="watch"></input>
-    {{watch}}
+    <input v-model="watchData"></input>
+    {{watchData}}
     {{input}}
     <!--<button @click="create(10)">计算函数</button>-->
     {{todos}}
@@ -33,7 +33,7 @@
       return {
         data:11,
         input:'1',
-        watch:"watch"
+        watchData:"watch"
       }
     },
     computed:{
@@ -45,8 +45,8 @@
       }
     },
     watch:{
-      watch(el){
-        this.input = this.watch
+      watchData(el){
+        this.input = this.watchData
       }
     },
     methods: {
