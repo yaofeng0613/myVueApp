@@ -22,6 +22,7 @@
     <!--<button @click="create(10)">计算函数</button>-->
     {{todos}}
     {{b}}
+    {{add}}
   </div>
 </template>
 <script>
@@ -33,7 +34,9 @@
       return {
         data:11,
         input:'1',
-        watchData:"watch"
+        watchData:"watch",
+        add1:100,
+        add2:200
       }
     },
     computed:{
@@ -42,6 +45,9 @@
       },
       todos:function(){
         return this.$store.getters.done
+      },
+      add:function(){
+        return this.add1 + this.add2
       }
     },
     watch:{

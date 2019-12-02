@@ -5,6 +5,7 @@
   <div>
     <div>asdasdasdasdas</div>
     <button @click="click">Send</button>
+    子组件值{{text}}
   </div>
 </template>
 <script>
@@ -27,13 +28,15 @@
       }
     },
     created() {
-      console.log(this.text,"1111111111111")
+      console.log(this.text,"props")
     },
     computed:{
 
     },
     watch:{
-
+      text(val){
+        console.log("父组件props变化了")
+      }
     },
     methods: {
       click(){

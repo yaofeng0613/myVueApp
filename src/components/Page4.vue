@@ -2,34 +2,38 @@
 
 </style>
 <template>
-  <!--<el-row class="tac">
-    <el-col :span="6">
-      <el-menu
-        default-active="1"
-        class="el-menu-vertical-demo"
-        @open="handleOpen"
-        @close="handleClose"
-      >
-        <el-submenu index="1">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>导航一</span>
-          </template>
-          <el-menu-item index="1-1">选项一</el-menu-item>
-          <el-menu-item index="1-2">选项二</el-menu-item>
-        </el-submenu>
-        <el-submenu index="2">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>导航二</span>
-          </template>
-          <el-menu-item index="1-1">选项一</el-menu-item>
-          <el-menu-item index="1-2">选项二</el-menu-item>
-        </el-submenu>
-      </el-menu>
-    </el-col>
-  </el-row>-->
-  <child text="111" @transmit="tran"></child>
+  <div>
+    <!--<el-row class="tac">
+      <el-col :span="6">
+        <el-menu
+          default-active="1"
+          class="el-menu-vertical-demo"
+          @open="handleOpen"
+          @close="handleClose"
+        >
+          <el-submenu index="1">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>导航一</span>
+            </template>
+            <el-menu-item index="1-1">选项一</el-menu-item>
+            <el-menu-item index="1-2">选项二</el-menu-item>
+          </el-submenu>
+          <el-submenu index="2">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>导航二</span>
+            </template>
+            <el-menu-item index="1-1">选项一</el-menu-item>
+            <el-menu-item index="1-2">选项二</el-menu-item>
+          </el-submenu>
+        </el-menu>
+      </el-col>
+    </el-row>-->
+    <child :text="props" @transmit="tran"></child>
+    <input v-model="props"/>
+    {{props}}
+  </div>
 </template>
 <script>
   import { mapActions, mapMutations } from 'vuex'
@@ -38,9 +42,10 @@
     components: {
       child
     },
-    name: 'Page2',
+    name: 'Page4',
     data(){
       return {
+        props:"propsaa",
         data:11,
         input:'1',
         watch:"watch",

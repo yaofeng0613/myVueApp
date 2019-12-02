@@ -9,6 +9,8 @@
     <router-link to="/Page4/PageSmall4">pageSmall4</router-link>
     <router-link to="/Page5">page5</router-link>
     <router-link to="/Page6">page6</router-link>
+    <router-link to="/Page7">page7</router-link>
+    <router-link to="/Page8">page8</router-link>
     <router-view />
   </div>
 </template>

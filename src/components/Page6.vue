@@ -15,7 +15,7 @@
 </template>
 <script>
   export default {
-    name: 'Page5',
+    name: 'Page6',
     data(){
       return {
         box:[{key:1,value:'one'},{key:2,value:'two'},{key:3,value:'three'}],
